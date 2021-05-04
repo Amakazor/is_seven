@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from "../theme/defaultTheme"
 
 export default function Home() {
   return (
@@ -11,7 +13,8 @@ export default function Home() {
         <meta name="keywords" content="API, Seven, Number, Is Seven, Joke, Mildly Funny"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-
+      <ThemeProvider theme={defaultTheme}>
+      </ThemeProvider>
     </div>
   )
 }

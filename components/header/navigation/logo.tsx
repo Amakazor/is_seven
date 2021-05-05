@@ -5,13 +5,8 @@ export default function Logo() {
     return (
         <Link href="#">
             <a>
-                <Image
-                src="/images/logo.png"
-                alt="IsSevenAPI logo"
-                width={128}
-                height={48}
-                />
+                <Image src="/images/logo.png" alt="IsSevenAPI logo" width={128} height={48} />
             </a>
         </Link>
-    )
+    );
 }

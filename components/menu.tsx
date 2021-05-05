@@ -70,6 +70,7 @@ export default function Menu() {
                 onBlur={handleMenuBlur}
             />
             <StyledMenu
+                role="tablist"
                 isHamburgerOpen={isHamburgerOpen}
                 onFocus={handleMenuFocus}
                 onBlur={handleMenuBlur}

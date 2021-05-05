@@ -70,8 +70,12 @@ const StyledHamburgerButton = styled.button<hamburgerProps>`
 
 export default function HamburgerButton(props: hamburgerProps) {
     return (
-        <StyledHamburgerButton {...props}>
-            <div/>
+        <StyledHamburgerButton
+            role="switch"
+            aria-checked={props.isHamburgerOpen}
+            {...props}
+        >
+            <div role="presentation"/>
         </StyledHamburgerButton>
     )
 }

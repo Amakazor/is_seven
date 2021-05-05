@@ -15,10 +15,13 @@ export const StyledMenuElement = styled.li<menuElementProps>`
     font-weight: 600;
     text-transform: capitalize;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 
     @media ${device.tablet.min} {
         border: ${props => props.hasBorder ? "0.125rem solid "+props.theme.colorPrimary : ""};
         border-radius: ${props => props.hasBorder ? props.theme.borderRadius : "0"};
+        width: auto;
     }
 
     & a {
@@ -58,7 +61,10 @@ export const StyledMenuElement = styled.li<menuElementProps>`
 
 export default function MenuElement(props: menuElementProps) {
     return (
-        <StyledMenuElement {...props}>
+        <StyledMenuElement
+            role="presentation"
+            {...props}
+        >
             <Link href={props.href}>
                 <a>{props.name}</a>
             </Link>

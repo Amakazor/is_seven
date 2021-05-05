@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 import MenuElement, {menuElementProps, StyledMenuElement} from './menuElement';
 import HamburgerButton from './hamburgerButton';
 import styled, { css } from "styled-components";
@@ -49,20 +49,14 @@ const StyledMenu = styled.ul<menuProps>`
     }
 `
 
-export default function Menu(props, ref) {
-    const menuElement = useRef(null);
-
+export default function Menu() {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const handleHamburgerClick = () => setIsHamburgerOpen((prev) => !prev);
     const handleMenuFocus = () => setIsHamburgerOpen(true);
-    const handleMenuBlur = () => {
-        if(menuElement.current != document.activeElement &&  !menuElement.current.contains(document.activeElement)) {
-            setIsHamburgerOpen(false);
-        }
-    }
+    const handleMenuBlur = () => setIsHamburgerOpen(false);
     
 
-    const menuListElements:Array<menuElementProps> = [
+    const menuElements:Array<menuElementProps> = [
         {name: "about", href:"#about"},
         {name: "documentation", href:"#documentation"},
         {name: "API", href:"/api/7", hasBorder: true},
@@ -80,9 +74,8 @@ export default function Menu(props, ref) {
                 isHamburgerOpen={isHamburgerOpen}
                 onFocus={handleMenuFocus}
                 onBlur={handleMenuBlur}
-                ref={menuElement}
             >
-                {menuListElements.map((element, index) => {return(
+                {menuElements.map((element, index) => {return(
                     <MenuElement
                         {...element}
                         key={index}

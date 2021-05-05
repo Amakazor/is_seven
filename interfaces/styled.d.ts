@@ -5,7 +5,7 @@ declare module 'styled-components' {
         colorPrimary: string;
         colorAccent: string;
         colorBackground: string;
-        transitionTime: number;
+        transitionTime: string;
         borderRadius: string
     }
 }

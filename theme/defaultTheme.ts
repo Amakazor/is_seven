@@ -4,6 +4,6 @@ export const defaultTheme: DefaultTheme = {
     colorPrimary: "#FFFFFF",
     colorAccent: "#408FF1",
     colorBackground: "#CCCCCC",
-    transitionTime: 200,
+    transitionTime: "200ms",
     borderRadius: "0.25rem"
 }

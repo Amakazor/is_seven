@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from "styled-components";
 import device from "../utility/device";
 
@@ -7,6 +7,7 @@ export interface menuElementProps {
     href: string
     name: string
     hasBorder?: boolean
+    onClick: MouseEventHandler
 }
 
 export const StyledMenuElement = styled.li<menuElementProps>`
@@ -66,7 +67,7 @@ export default function MenuElement(props: menuElementProps) {
             {...props}
         >
             <Link href={props.href}>
-                <a>{props.name}</a>
+                <a onClick={props.onClick}>{props.name}</a>
             </Link>
         </StyledMenuElement>
     )

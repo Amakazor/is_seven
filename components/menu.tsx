@@ -57,9 +57,9 @@ export default function Menu() {
     
 
     const menuElements:Array<menuElementProps> = [
-        {name: "about", href:"#about"},
-        {name: "documentation", href:"#documentation"},
-        {name: "API", href:"/api/7", hasBorder: true},
+        {name: "about", href:"#about", onClick: handleMenuBlur},
+        {name: "documentation", href:"#documentation", onClick: handleMenuBlur},
+        {name: "API", href:"/api/7", hasBorder: true, onClick: handleMenuBlur},
     ]
 
     return (

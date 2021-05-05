@@ -51,10 +51,10 @@ const StyledMenu = styled.ul<menuProps>`
 
 export default function Menu() {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-
-    const handleHamburgerClick = () => {
-        setIsHamburgerOpen((prev) => !prev);
-    }
+    const handleHamburgerClick = () => setIsHamburgerOpen((prev) => !prev);
+    const handleMenuFocus = () => setIsHamburgerOpen(true);
+    const handleMenuBlur = () => setIsHamburgerOpen(false);
+    
 
     const menuElements:Array<menuElementProps> = [
         {name: "about", href:"#about"},
@@ -67,9 +67,12 @@ export default function Menu() {
             <HamburgerButton 
                 isHamburgerOpen={isHamburgerOpen}
                 onClick={handleHamburgerClick}
+                onBlur={handleMenuBlur}
             />
             <StyledMenu
                 isHamburgerOpen={isHamburgerOpen}
+                onFocus={handleMenuFocus}
+                onBlur={handleMenuBlur}
             >
                 {menuElements.map((element, index) => {return(
                     <MenuElement

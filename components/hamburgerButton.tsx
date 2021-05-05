@@ -1,10 +1,11 @@
-import React, { MouseEventHandler } from "react";
+import React, { FocusEventHandler, MouseEventHandler } from "react";
 import styled, { css } from "styled-components";
 import device from "../utility/device";
 
 interface hamburgerProps {
     isHamburgerOpen: boolean;
     onClick: MouseEventHandler;
+    onBlur: FocusEventHandler;
 }
 
 const StyledHamburgerbuttonOpen = css`

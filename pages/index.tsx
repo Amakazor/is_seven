@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components';
+import Header from "../layout/header";
 import { defaultTheme } from "../theme/defaultTheme"
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
       </Head>
       <ThemeProvider theme={defaultTheme}>
+        <Header/>
       </ThemeProvider>
     </div>
   )

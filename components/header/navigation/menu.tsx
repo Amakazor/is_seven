@@ -40,6 +40,7 @@ const StyledMenu = styled.ul<menuProps>`
         transform-origin: top;
         transform: scaleY(0);
         transition: transform ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
+        border-bottom: 0.125rem solid ${(props) => props.theme.colorPrimary};
 
         & ${StyledMenuElement} {
             opacity: 0;

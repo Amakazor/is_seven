@@ -35,7 +35,7 @@ const StyledMenu = styled.ul<menuProps>`
         top: 100%;
         background: ${props => props.theme.colorAccent};
         padding: 1rem 0;
-        border-top: 0.125rem solid ${props => props.theme.colorPrimary};
+        margin-top: 0.125rem;
         transform-origin: top;
         transform: scaleY(0);
         transition: transform ${props => props.theme.transitionTime} ${props => props.theme.transitionTime};

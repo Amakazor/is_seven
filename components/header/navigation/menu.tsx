@@ -34,13 +34,13 @@ const StyledMenu = styled.ul<menuProps>`
         right: 0;
         width: 100%;
         top: 100%;
-        background: ${(props) => props.theme.colorAccent};
+        background: ${(props) => props.theme.colors.colorAccent};
         padding: 1rem 0;
         margin-top: 0.125rem;
         transform-origin: top;
         transform: scaleY(0);
         transition: transform ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
-        border-bottom: 0.125rem solid ${(props) => props.theme.colorPrimary};
+        border-bottom: 0.125rem solid ${(props) => props.theme.colors.colorPrimary};
 
         & ${StyledMenuElement} {
             opacity: 0;

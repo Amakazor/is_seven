@@ -38,7 +38,7 @@ const StyledHamburgerButton = styled.button<hamburgerProps>`
         position: absolute;
         width: 100%;
         height: 0.25rem;
-        background: ${(props) => props.theme.colorPrimary};
+        background: ${(props) => props.theme.colors.colorPrimary};
         left: 0;
         right: 0;
         transition: transform ${(props) => props.theme.transitionTime};

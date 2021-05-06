@@ -19,7 +19,7 @@ const StyledWelcomeTextContainer = styled.div`
 `;
 
 const StyledWelcomeText = styled.div`
-    color: ${(props) => props.theme.colorPrimary};
+    color: ${(props) => props.theme.colors.colorPrimary};
     margin-top: 0;
     font-size: 1.5rem;
     line-height: 1.3rem;

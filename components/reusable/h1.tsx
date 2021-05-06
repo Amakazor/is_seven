@@ -3,7 +3,7 @@ import styled, { ThemedStyledProps } from 'styled-components';
 
 const StyledH1 = styled.h1`
     font-size: 5rem;
-    color: ${(props) => props.theme.colorPrimary};
+    color: ${(props) => props.theme.colors.colorPrimary};
     font-weight: 500;
     margin: 0;
 `;

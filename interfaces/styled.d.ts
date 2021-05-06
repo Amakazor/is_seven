@@ -2,9 +2,12 @@ import 'styled-components';
 
 declare module 'styled-components' {
     export interface DefaultTheme {
-        colorPrimary: string;
-        colorAccent: string;
-        colorBackground: string;
+        colors: {
+            colorPrimary: string;
+            colorAccent: string;
+            colorBackground: string;
+            colorCallToAction: string;
+        }
         transitionTime: string;
         borderRadius: string
     }

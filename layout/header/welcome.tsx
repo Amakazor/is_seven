@@ -6,7 +6,7 @@ import device from '../../utility/device';
 
 const StyledWelcome = styled.div`
     width: 100%;
-    background: ${(props) => props.theme.colorAccent};
+    background: ${(props) => props.theme.colors.colorAccent};
     margin-top: 5rem;
     display: flex;
     flex-direction: row;

@@ -31,12 +31,12 @@ const DecorationSubcontainer = styled.div<WelcomeDecorationProps>`
     left: 0;
     right: 0;
     bottom: ${(props) => (props.isInside ? null : '-10vw')};
-    background: ${(props) => (props.isInside ? props.theme.colorAccent : props.theme.colorBackground)};
+    background: ${(props) => (props.isInside ? props.theme.colors.colorAccent : props.theme.colors.colorBackground)};
     clip-path: ${(props) => (props.isInside ? 'polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%)' : 'polygon(0 100%, 100% 100%, 100% 0, 50% 50%, 0 0)')};
 `;
 
 const DecorationElement = styled.div<WelcomeDecorationElementProps>`
-    color: ${(props) => (props.isInside ? props.theme.colorBackground : props.theme.colorAccent)};
+    color: ${(props) => (props.isInside ? props.theme.colors.colorBackground : props.theme.colors.colorAccent)};
     bottom: calc(${(props) => pseudoRandomOffset(props.index)} + ${(props) => (props.isInside ? '-7vw' : ' 3vw')} + 3vw * ${(props) => Math.abs(props.index - (props.total - 1) / 2)});
     font-size: 15vw;
     position: absolute;
@@ -50,7 +50,7 @@ const DecorationElement = styled.div<WelcomeDecorationElementProps>`
             [-1,  1],
             [ 1, -1],
             [ 1,  1],
-        ].map((value) => `${value[0] * 0.125}rem ${value[1] * 0.125}rem 1px ${props.theme.colorPrimary}`).join(', ')};
+        ].map((value) => `${value[0] * 0.125}rem ${value[1] * 0.125}rem 1px ${props.theme.colors.colorPrimary}`).join(', ')};
 `;
 
 export default function WelcomeDecoration() {

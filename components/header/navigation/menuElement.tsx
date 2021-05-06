@@ -11,7 +11,7 @@ export interface menuElementProps {
 }
 
 export const StyledMenuElement = styled.li<menuElementProps>`
-    color: ${(props) => props.theme.colorPrimary};
+    color: ${(props) => props.theme.colors.colorPrimary};
     transition: color ${(props) => props.theme.transitionTime}, background ${(props) => props.theme.transitionTime};
     font-weight: 600;
     text-transform: capitalize;
@@ -20,7 +20,7 @@ export const StyledMenuElement = styled.li<menuElementProps>`
     text-align: center;
 
     @media ${device.tablet.min} {
-        border: ${(props) => (props.hasBorder ? '0.125rem solid ' + props.theme.colorPrimary : '')};
+        border: ${(props) => (props.hasBorder ? '0.125rem solid ' + props.theme.colors.colorPrimary : '')};
         border-radius: ${(props) => (props.hasBorder ? props.theme.borderRadius : '0')};
         width: auto;
     }
@@ -35,8 +35,8 @@ export const StyledMenuElement = styled.li<menuElementProps>`
     &:focus-within,
     &:hover {
         @media ${device.tablet.min} {
-            color: ${(props) => (props.hasBorder ? props.theme.colorAccent : props.theme.colorPrimary)};
-            background: ${(props) => (props.hasBorder ? props.theme.colorPrimary : '')};
+            color: ${(props) => (props.hasBorder ? props.theme.colors.colorAccent : props.theme.colors.colorPrimary)};
+            background: ${(props) => (props.hasBorder ? props.theme.colors.colorPrimary : '')};
 
             & a::after {
                 transform: scaleX(1);
@@ -53,7 +53,7 @@ export const StyledMenuElement = styled.li<menuElementProps>`
         height: 0.125rem;
         left: 10%;
         top: 100%;
-        background: ${(props) => props.theme.colorPrimary};
+        background: ${(props) => props.theme.colors.colorPrimary};
         transform: scaleX(0);
         transition: transform ${(props) => props.theme.transitionTime};
     }

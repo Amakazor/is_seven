@@ -21,10 +21,10 @@ const size = {
     },
     laptopL: {
         min: "1440px",
-        max: "2559px",
+        max: "1919px",
     },
     desktop: {
-        min: "2560px",
+        min: "1920px",
         max: "15360px",
     },
 }

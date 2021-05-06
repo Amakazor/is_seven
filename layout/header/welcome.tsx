@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import WelcomeDecoration from '../../components/header/welcome/welcomeDecoration';
+import WelcomeMockWindow from '../../components/header/welcome/welcomeMockWindow';
 import H1 from '../../components/reusable/h1';
 import device from '../../utility/device';
 
@@ -9,12 +10,24 @@ const StyledWelcome = styled.div`
     margin-top: 5rem;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: flex-start;
     position: relative;
+
+    @media ${device.laptop.max} {
+        flex-direction: column;
+    }
 `;
 
 const StyledWelcomeTextContainer = styled.div`
-    padding: 5rem 10%;
+    padding: 10rem 5% 5rem 10%;
+
+    @media (max-width: 1650px) {
+        padding: 5rem 2% 5rem 10%;
+    }
+
+    @media ${device.laptop.max} {
+        padding: 3rem 2% 3rem 10%;
+    }
 
     @media ${device.mobileL.max} {
         padding: 2rem 5%;
@@ -44,6 +57,7 @@ export default function Welcome() {
                     Simply amazing.
                 </StyledWelcomeText>
             </StyledWelcomeTextContainer>
+            <WelcomeMockWindow />
             <WelcomeDecoration />
         </StyledWelcome>
     );

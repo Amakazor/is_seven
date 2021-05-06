@@ -66,7 +66,7 @@ export default function Menu() {
     return (
         <>
             <HamburgerButton isHamburgerOpen={isHamburgerOpen} onClick={handleHamburgerClick} onBlur={handleMenuBlur} />
-            <StyledMenu role="tablist" isHamburgerOpen={isHamburgerOpen} onFocus={handleMenuFocus} onBlur={handleMenuBlur}>
+            <StyledMenu isHamburgerOpen={isHamburgerOpen} onFocus={handleMenuFocus} onBlur={handleMenuBlur}>
                 {menuElements.map((element, index) => {
                     return <MenuElement {...element} onClick={handleMenuBlur} key={index} />;
                 })}

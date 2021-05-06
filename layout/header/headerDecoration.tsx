@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import floatLookup from '../../../utility/pseudoRandomFloatLookupTable';
-import booleanLookup from '../../../utility/pseudoRandomBooleanLookupTable';
+import floatLookup from '../../utility/pseudoRandomFloatLookupTable';
+import booleanLookup from '../../utility/pseudoRandomBooleanLookupTable';
 
 interface WelcomeDecorationProps {
     isInside: boolean;
@@ -16,23 +16,24 @@ const pseudoRandomOffset = (index: number) => (booleanLookup[(index * 5) & boole
 const pseudoRandomRotation = (index: number) => (booleanLookup[(index * 13) & booleanLookup.length] ? 1 : -1) * floatLookup[(index * 17) & floatLookup.length] * 20 + 'deg';
 
 const DecorationContainer = styled.div`
-    position: absolute;
+    position: relative;
     width: 100%;
     top: calc(100% - 1px);
     height: 20vw;
     pointer-events: none;
-    overflow: hidden;
+    margin-bottom: 10vw;
 `;
 
 const DecorationSubcontainer = styled.div<WelcomeDecorationProps>`
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
-    bottom: ${(props) => (props.isInside ? null : '-10vw')};
+    bottom: ${(props) => (props.isInside ? null : '10vw')};
     background: ${(props) => (props.isInside ? props.theme.colors.colorAccent : props.theme.colors.colorBackground)};
     clip-path: ${(props) => (props.isInside ? 'polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%)' : 'polygon(0 100%, 100% 100%, 100% 0, 50% 50%, 0 0)')};
+    overflow: hidden;
 `;
 
 const DecorationElement = styled.div<WelcomeDecorationElementProps>`
@@ -53,7 +54,7 @@ const DecorationElement = styled.div<WelcomeDecorationElementProps>`
         ].map((value) => `${value[0] * 0.125}rem ${value[1] * 0.125}rem 1px ${props.theme.colors.colorPrimary}`).join(', ')};
 `;
 
-export default function WelcomeDecoration() {
+export default function HeaderDecoration() {
     const decorationElementsCount = 7;
 
     return (

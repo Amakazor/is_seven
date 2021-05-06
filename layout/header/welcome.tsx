@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import WelcomeDecoration from '../../components/header/welcome/welcomeDecoration';
 import WelcomeMockWindow from '../../components/header/welcome/welcomeMockWindow';
 import WelcomeText from '../../components/header/welcome/welcomeText';
 import device from '../../utility/device';
@@ -23,7 +22,6 @@ export default function Welcome() {
         <StyledWelcome>
             <WelcomeText />
             <WelcomeMockWindow />
-            <WelcomeDecoration />
         </StyledWelcome>
     );
 }

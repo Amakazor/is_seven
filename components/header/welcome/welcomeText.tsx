@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import H1 from '../../reusable/h1';
 import device from '../../../utility/device';
+import { useContext } from 'react';
 
 const StyledWelcomeTextContainer = styled.div`
     padding: 10rem 5% 5rem 10%;
@@ -38,9 +39,10 @@ const StyledWelcomeText = styled.div`
 `;
 
 export default function WelcomeText() {
+    const theme = useContext(ThemeContext);
     return (
         <StyledWelcomeTextContainer>
-            <H1>is7API</H1>
+            <H1 textColor={theme.colors.colorPrimary}>is7API</H1>
             <StyledWelcomeText>
                 <p>The API to revolutionize the way you develop the web.</p>
                 <p>The solution to your everyday problems.</p>

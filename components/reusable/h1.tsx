@@ -1,13 +1,13 @@
 import React, { ReactChild } from 'react';
-import styled, { ThemedStyledProps } from 'styled-components';
+import styled from 'styled-components';
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled.h1<{textColor: string}>`
     font-size: 5rem;
-    color: ${(props) => props.theme.colors.colorPrimary};
+    color: ${(props) => props.textColor};
     font-weight: 500;
     margin: 0;
 `;
 
-export default function H1(props: { children: ReactChild | ReactChild[] }) {
-    return <StyledH1>{props.children}</StyledH1>;
+export default function H1(props: {textColor: string, children: ReactChild | ReactChild[] }) {
+    return <StyledH1 textColor={props.textColor}>{props.children}</StyledH1>;
 }

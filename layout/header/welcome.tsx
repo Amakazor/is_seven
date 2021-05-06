@@ -8,8 +8,9 @@ const StyledWelcome = styled.div`
     background: ${(props) => props.theme.colorAccent};
     margin-top: 5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: baseline;
+    position: relative;
 `;
 
 const StyledWelcomeTextContainer = styled.div`

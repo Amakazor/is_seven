@@ -16,9 +16,9 @@ const pseudoRandomOffset = (index: number) => (booleanLookup[(index * 5) & boole
 const pseudoRandomRotation = (index: number) => (booleanLookup[(index * 13) & booleanLookup.length] ? 1 : -1) * floatLookup[(index * 17) & floatLookup.length] * 20 + 'deg';
 
 const DecorationContainer = styled.div`
-    position: relative;
+    position: absolute;
     width: 100%;
-    top: -1px;
+    top: 100%;
     height: 20vw;
     pointer-events: none;
 `;

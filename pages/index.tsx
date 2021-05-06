@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Main from '../layout/main';
 import { ThemeProvider } from 'styled-components';
 import Header from "../layout/header";
 import { defaultTheme } from "../theme/defaultTheme"
@@ -19,4 +20,5 @@ export default function Home() {
       </ThemeProvider>
     </div>
   )
+                <Main />
 }

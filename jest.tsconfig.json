@@ -1,17 +1,19 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "esnext",
-        "jsx": "react",
-        "sourceMap": false,
+        "target": "es5",
+        "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+        ],
+        "jsx": "react-jsx",
+        "sourceMap": true,
         "experimentalDecorators": true,
         "noImplicitUseStrict": true,
         "removeComments": true,
         "moduleResolution": "node",
-        "lib": [
-            "es2017",
-            "dom"
-        ],
+        "esModuleInterop": true,
         "typeRoots": [
             "node_modules/@types"
         ]

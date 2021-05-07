@@ -9,6 +9,11 @@ declare module 'styled-components' {
             colorCallToAction: string;
             colorText: string;
         };
+        fonts: {
+            sizes: {
+                standard: string;
+            }
+        }
         transitionTime: string;
         borderRadius: string;
     }

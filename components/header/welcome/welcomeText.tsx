@@ -11,7 +11,7 @@ const StyledWelcomeTextContainer = styled.div`
     }
 
     @media ${device.laptop.max} {
-        padding: 3rem 10% 3rem ;
+        padding: 3rem 10% 3rem;
     }
 
     @media ${device.mobileL.max} {
@@ -22,7 +22,7 @@ const StyledWelcomeTextContainer = styled.div`
 const StyledWelcomeText = styled.div`
     color: ${(props) => props.theme.colors.colorPrimary};
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: ${(props) => props.theme.fonts.sizes.standard};
     line-height: 1.3rem;
 
     & > p {
@@ -34,7 +34,7 @@ const StyledWelcomeText = styled.div`
     }
 
     @media ${device.mobileM.max} {
-        font-size: .9rem;
+        font-size: 0.9rem;
     }
 `;
 

@@ -8,6 +8,11 @@ export const defaultTheme: DefaultTheme = {
         colorCallToAction: '#FFB132',
         colorText: '#111111',
     },
+    fonts: {
+        sizes: {
+            standard: '1.5rem',
+        },
+    },
     transitionTime: '200ms',
     borderRadius: '0.25rem',
 };

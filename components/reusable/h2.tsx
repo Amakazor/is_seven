@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import { ReactChild } from 'react';
 import styled from 'styled-components';
 
 const StyledH1 = styled.h2<{textColor: string}>`

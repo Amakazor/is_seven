@@ -19,7 +19,7 @@ const StyledWelcome = styled.div`
 
 export default function Welcome() {
     return (
-        <StyledWelcome>
+        <StyledWelcome id="home">
             <WelcomeText />
             <WelcomeMockWindow />
         </StyledWelcome>

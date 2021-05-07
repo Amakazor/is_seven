@@ -58,6 +58,7 @@ export default function Menu() {
     const handleMenuBlur = () => setIsHamburgerOpen(false);
 
     const menuElements: Array<menuElementProps> = [
+        { name: 'home', href: '#home' },
         { name: 'about', href: '#about' },
         { name: 'documentation', href: '#documentation' },
         { name: 'API', href: '/api/7', hasBorder: true },

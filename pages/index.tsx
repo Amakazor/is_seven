@@ -4,10 +4,11 @@ import Main from '../layout/main';
 
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '../theme/defaultTheme';
+import GlobalStyle from '../components/GlobalStyle';
 
 export default function Home() {
     return (
-        <div>
+        <>
             <Head>
                 <title>Is Seven API</title>
                 <meta name="description" content="API to find if number is seven" />
@@ -19,7 +20,8 @@ export default function Home() {
             <ThemeProvider theme={defaultTheme}>
                 <Header />
                 <Main />
+                <GlobalStyle/>
             </ThemeProvider>
-        </div>
+        </>
     );
 }

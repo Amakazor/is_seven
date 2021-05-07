@@ -10,8 +10,9 @@ declare module 'styled-components' {
             colorText: string;
         };
         fonts: {
-            sizes: {
-                standard: string;
+            [key: string]: {
+                size: string;
+                weight: number;
             }
         }
         transitionTime: string;

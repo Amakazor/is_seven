@@ -9,8 +9,9 @@ export const defaultTheme: DefaultTheme = {
         colorText: '#111111',
     },
     fonts: {
-        sizes: {
-            standard: '1.5rem',
+        standard: {
+            size: '1.5rem',
+            weight: 400,
         },
     },
     transitionTime: '200ms',

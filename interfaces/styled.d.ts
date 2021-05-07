@@ -7,8 +7,9 @@ declare module 'styled-components' {
             colorAccent: string;
             colorBackground: string;
             colorCallToAction: string;
-        }
+            colorText: string;
+        };
         transitionTime: string;
-        borderRadius: string
+        borderRadius: string;
     }
 }

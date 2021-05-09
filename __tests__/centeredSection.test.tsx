@@ -5,11 +5,29 @@ import { defaultTheme } from '../theme/defaultTheme';
 
 describe('Centered Section', () => {
     it('renders without crashing', () => {
-        shallow(
+        mount(
             <ThemeProvider theme={defaultTheme}>
                 <CenteredSection>abcd</CenteredSection>
             </ThemeProvider>,
         );
+    });
+
+    it('has correct id', () => {
+        const testId = "testId";
+
+        let centeredSection = mount(
+            <ThemeProvider theme={defaultTheme}>
+                <CenteredSection id={testId}>abcd</CenteredSection>
+            </ThemeProvider>,
+        );
+        expect(centeredSection.find(CenteredSection).prop('id')).toBe(testId);
+
+        centeredSection = mount(
+            <ThemeProvider theme={defaultTheme}>
+                <CenteredSection>abcd</CenteredSection>
+            </ThemeProvider>,
+        );
+        expect(centeredSection.find(CenteredSection).prop('id')).toBe(undefined);
     });
 
     it('renders children correctly', () => {

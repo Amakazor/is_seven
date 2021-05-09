@@ -1,6 +1,25 @@
 import styled from 'styled-components';
 import device from '../../../utility/device';
 
+interface Line {
+    isMockLine: boolean;
+    indent: {
+        left: number;
+        right: number;
+    };
+    content?: JSX.Element;
+}
+
+interface Filename {
+    name: string;
+    isActive: boolean;
+}
+
+export interface WelcomeMockWindowProps {
+    lines: Array<Line>;
+    filenames: Array<Filename>;
+}
+
 const MockWindowContainer = styled.div`
     position: relative;
     width: 50rem;
@@ -78,7 +97,7 @@ const MockWindowLeft = styled.div`
     border-right: 0.0625rem solid ${(props) => props.theme.colors.colorAccent};
 `;
 
-const MockWindowFile = styled.div<{ isActive: boolean }>`
+const MockWindowFile = styled.div<Filename>`
     width: 100%;
     padding: 0.25rem 0.5rem;
     background: ${(props) => (props.isActive ? props.theme.colors.colorBackground : null)};
@@ -90,15 +109,7 @@ const MockWindowFile = styled.div<{ isActive: boolean }>`
     }
 `;
 
-interface MockWindowLineProps {
-    isMockLine?: boolean;
-    indent?: {
-        left: number;
-        right: number;
-    };
-}
-
-const MockWindowLine = styled.div<MockWindowLineProps>`
+const MockWindowLine = styled.div<Line>`
     display: flex;
     flex-direction: row;
     width: calc(95% - ${(props) => ((props.indent?.left ?? 0) + (props.indent?.right ?? 0)) * 5}%);
@@ -167,48 +178,7 @@ const MockWindowRight = styled.div`
     justify-content: stretch;
 `;
 
-export default function WelcomeMockWindow() {
-    const lines: Array<MockWindowLineProps & { content?: JSX.Element }> = [
-        { indent: { left: 0, right: 0 } },
-        { indent: { left: 0, right: 10 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 2, right: 4 } },
-        { indent: { left: 2, right: 6 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 0, right: 8 } },
-        { indent: { left: 0, right: 0 }, isMockLine: false, content: <span>{'axios.get(isseven.awrzawinski.xyz/api/7)'}</span> },
-        { indent: { left: 2, right: 0 }, isMockLine: false, content: <span>{'.then(() => setSuccessfulDev("ME"));'}</span> },
-        { indent: { left: 0, right: 0 } },
-        { indent: { left: 0, right: 8 } },
-        { indent: { left: 0, right: 12 } },
-        { indent: { left: 2, right: 6 } },
-        { indent: { left: 0, right: 16 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 0, right: 12 } },
-        { indent: { left: 0, right: 6 } },
-        { indent: { left: 2, right: 6 } },
-        { indent: { left: 2, right: 8 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 0, right: 0 } },
-        { indent: { left: 0, right: 10 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 2, right: 4 } },
-        { indent: { left: 2, right: 6 } },
-        { indent: { left: 2, right: 2 } },
-        { indent: { left: 0, right: 8 } },
-    ];
-
-    const filenames: Array<{ name: string; isActive: boolean }> = [
-        { name: 'node_modules', isActive: false },
-        { name: 'menu.tsx', isActive: false },
-        { name: 'masterpiece.png', isActive: false },
-        { name: 'blame.css', isActive: false },
-        { name: 'checkSeven.ts', isActive: true },
-        { name: 'something.ts', isActive: false },
-        { name: 'itsajoke.md', isActive: false },
-        { name: 'package.json', isActive: false },
-    ];
-
+export default function WelcomeMockWindow(props: WelcomeMockWindowProps) {
     return (
         <MockWindowContainer role="presentation">
             <MockWindowButtons role="presentation">
@@ -218,15 +188,15 @@ export default function WelcomeMockWindow() {
             </MockWindowButtons>
             <MockWindowInside role="presentation">
                 <MockWindowLeft role="presentation">
-                    {filenames.map((value, index) => (
-                        <MockWindowFile role="presentation" isActive={value.isActive} key={index}>
+                    {props.filenames.map((value, index) => (
+                        <MockWindowFile className="mockWindowFile" role="presentation" {...value} key={index}>
                             {value.name}
                         </MockWindowFile>
                     ))}
                 </MockWindowLeft>
                 <MockWindowRight role="presentation">
-                    {lines.map((value, index) => (
-                        <MockWindowLine role="presentation" {...value} isMockLine={value.isMockLine ?? true} key={index}>
+                    {props.lines.map((value, index) => (
+                        <MockWindowLine className="mockWindowLine" role="presentation" {...value} isMockLine={value.isMockLine} key={index}>
                             <MockWindowLineNumber>{index}</MockWindowLineNumber>
                             {value?.content}
                         </MockWindowLine>

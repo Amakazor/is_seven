@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import MenuElement, { menuElementProps, StyledMenuElement } from './menuElement';
+import React, { useState, useContext } from 'react';
 import HamburgerButton from './hamburgerButton';
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeContext } from 'styled-components';
 import device from '../../../utility/device';
+import UnderlinedLink from '../../reusable/underlinedLink';
+import BorderedLink from '../../reusable/borderedLink';
+
 
 interface menuProps {
     isHamburgerOpen: boolean;
@@ -13,7 +15,7 @@ const menuOpen = css`
 
     transition: transform ${(props) => props.theme.transitionTime};
 
-    & ${StyledMenuElement} {
+    & li {
         opacity: 1;
         transition: opacity ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
     }
@@ -42,7 +44,7 @@ const StyledMenu = styled.ul<menuProps>`
         transition: transform ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
         border-bottom: 0.125rem solid ${(props) => props.theme.colors.colorPrimary};
 
-        & ${StyledMenuElement} {
+        & li {
             opacity: 0;
             transition: opacity ${(props) => props.theme.transitionTime};
         }
@@ -57,19 +59,58 @@ export default function Menu() {
     const handleMenuFocus = () => setIsHamburgerOpen(true);
     const handleMenuBlur = () => setIsHamburgerOpen(false);
 
-    const menuElements: Array<menuElementProps> = [
-        { name: 'home', href: '#home' },
-        { name: 'about', href: '#about' },
-        { name: 'documentation', href: '#documentation' },
-        { name: 'API', href: '/api/7', hasBorder: true },
+    const theme = useContext(ThemeContext);
+
+    const menuElements: Array<{children: React.ReactChild | React.ReactChild[]; href: string; hasBorder: boolean}> = [
+        { children: 'Home', href: '#home', hasBorder: false },
+        { children: 'About', href: '#about', hasBorder: false },
+        { children: 'Documentation', href: '#documentation', hasBorder: false },
+        { children: 'API', href: '/api/7', hasBorder: true },
     ];
+
+    const underlinedLinkProps = {
+        colors: {
+            normal: {
+                textColor: theme.colors.colorPrimary,
+                backgroundColor: 'transparent',
+            },
+            hover: {
+                textColor: theme.colors.colorPrimary,
+                backgroundColor: 'transparent',
+            },
+            underlineColor: theme.colors.colorPrimary,
+        },
+        transitionTime: theme.transitionTime,
+    };
+
+    const borderedLinkProps = {
+        colors: {
+            normal: {
+                textColor: theme.colors.colorPrimary,
+                borderColor: theme.colors.colorPrimary,
+                backgroundColor: theme.colors.colorAccent,
+            },
+            hover: {
+                textColor: theme.colors.colorAccent,
+                borderColor: theme.colors.colorPrimary,
+                backgroundColor: theme.colors.colorPrimary,
+            },
+        },
+        transitionTime: theme.transitionTime,
+        borderRadius: theme.borderRadius,
+        removeBorderMobile: true,
+    };
 
     return (
         <>
             <HamburgerButton isHamburgerOpen={isHamburgerOpen} onClick={handleHamburgerClick} onBlur={handleMenuBlur} />
             <StyledMenu isHamburgerOpen={isHamburgerOpen} onFocus={handleMenuFocus} onBlur={handleMenuBlur}>
                 {menuElements.map((element, index) => {
-                    return <MenuElement {...element} onClick={handleMenuBlur} key={index} />;
+                    if (element.hasBorder) {
+                        return <li key={index}><BorderedLink {...borderedLinkProps} href={element.href} onClick={handleMenuBlur}>{element.children}</BorderedLink></li>
+                    } else {
+                        return <li key={index}><UnderlinedLink {...underlinedLinkProps} href={element.href} onClick={handleMenuBlur}>{element.children}</UnderlinedLink></li>
+                    }
                 })}
             </StyledMenu>
         </>

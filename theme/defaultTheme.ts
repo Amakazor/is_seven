@@ -17,6 +17,10 @@ export const defaultTheme: DefaultTheme = {
             size: '1.6rem',
             weight: 400,
         },
+        slightlySmaller: {
+            size: '1.2rem',
+            weight: 400,
+        },
     },
     transitionTime: '200ms',
     borderRadius: '0.25rem',

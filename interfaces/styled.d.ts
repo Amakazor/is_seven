@@ -8,6 +8,8 @@ declare module 'styled-components' {
             colorBackground: string;
             colorCallToAction: string;
             colorText: string;
+            colorGray: string;
+            colorDark: string;
         };
         fonts: {
             [key: string]: {

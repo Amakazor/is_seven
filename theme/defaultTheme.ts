@@ -7,6 +7,8 @@ export const defaultTheme: DefaultTheme = {
         colorBackground: '#EEEEEE',
         colorCallToAction: '#FFB132',
         colorText: '#111111',
+        colorGray: '#AAAAAA',
+        colorDark: '#222222',
     },
     fonts: {
         standard: {
@@ -18,7 +20,7 @@ export const defaultTheme: DefaultTheme = {
             weight: 400,
         },
         slightlySmaller: {
-            size: '1.2rem',
+            size: '1.1rem',
             weight: 400,
         },
     },

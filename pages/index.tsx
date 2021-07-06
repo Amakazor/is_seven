@@ -5,8 +5,11 @@ import Main from '../layout/main';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '../theme/defaultTheme';
 import GlobalStyle from '../components/GlobalStyle';
+import React from 'react';
 
-export default function Home() {
+export const HostContext = React.createContext('');
+
+export default function Home(props: any) {
     return (
         <>
             <Head>
@@ -18,10 +21,24 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ThemeProvider theme={defaultTheme}>
-                <Header />
-                <Main />
-                <GlobalStyle/>
+                <HostContext.Provider value={props.host}>
+                    <Header />
+                    <Main />
+                    <GlobalStyle/>
+                </HostContext.Provider>
             </ThemeProvider>
         </>
     );
+}
+
+Home.getInitialProps = ({req}) => {
+    let fullUrl
+    if (req) {
+      // Server side rendering
+      fullUrl = req.headers.host
+    } else {
+      // Client side rendering
+      fullUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port: '')
+    }
+    return { host: fullUrl }
 }

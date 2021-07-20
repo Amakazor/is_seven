@@ -1,7 +1,7 @@
-enum MATCHING_TYPE {
+enum COMPARISON_TYPE {
     exact = "exact",
     close = "close",
     round = "round"
 }
 
-export default MATCHING_TYPE;
+export default COMPARISON_TYPE;

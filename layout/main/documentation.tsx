@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ThemeContext } from 'styled-components';
 import { HostContext } from '../../pages';
 
-import MATCHING_TYPE from '../../enums/matchingType';
+import COMPARISON_TYPE from '../../enums/comparisonType';
 
 import DocumentationElement, { DocumentationText } from '../../components/main/documentation/documentationElement';
 import CenteredSection from '../../components/reusable/centeredSection';
@@ -67,21 +67,21 @@ export default function Documentation(props: any) {
         axios.get(`/api/${activeNumber}`).then(response => setResponseFirst(JSON.stringify(response.data)));
     }, [activeNumber])
 
-    const matchingTypes = Object.values(MATCHING_TYPE);
+    const comparisonTypes = Object.values(COMPARISON_TYPE);
 
-    const matchingNumbers = [
+    const comparisonNumers = [
         '7',
         '7.00005',
         '7.33',
         '7.66'
     ]
 
-    const [matchingNumberIndex, setMatchingNumberIndex] = useState(0);
-    const [matchingTypeIndex, setMatchingTypeIndex] = useState(0)
+    const [comparisonNumberIndex, setComparisonNumberIndex] = useState(0);
+    const [comparisonTypeIndex, setComparisonTypeIndex] = useState(0)
     const [responseSecond, setResponseSecond] = useState('');
     useEffect(() => {
-        axios.get(`/api/${matchingNumbers[matchingNumberIndex]}?matching=${matchingTypes[matchingTypeIndex]}`).then(response => setResponseSecond(JSON.stringify(response.data)));
-    }, [matchingNumberIndex, matchingTypeIndex])
+        axios.get(`/api/${comparisonNumers[comparisonNumberIndex]}?comparison=${comparisonTypes[comparisonTypeIndex]}`).then(response => setResponseSecond(JSON.stringify(response.data)));
+    }, [comparisonNumberIndex, comparisonTypeIndex])
 
     const [responseThird, setResponseThird] = useState([]);
     useEffect(() => {
@@ -92,7 +92,7 @@ export default function Documentation(props: any) {
         const urls = [
             `/api/`,
             `/api/seven`,
-            `/api/7?matching=yes`,
+            `/api/7?comparison=yes`,
         ]
 
         Promise.allSettled(urls.map(url => axios.get(url, axiosGetConfig))).then(responses => {
@@ -163,14 +163,14 @@ export default function Documentation(props: any) {
             </DocumentationElement>
             <DocumentationElement {...documentationCommonProps}>
                 <DocumentationText {...documentationCommonProps}>
-                    <H3 textColor={theme.colors.colorText}>Matching types</H3>
+                    <H3 textColor={theme.colors.colorText}>Comparison types</H3>
                     <p>
                         The basic functionality of is7API only allows you to test whether a number is exactly equal to seven or not.
                         But what if you wantend to check if a number is very close to 7, or will be equal to seven after rounding?
-                        Thats where <i>matching</i> property comes in!
+                        Thats where <i>comparison</i> property comes in!
                     </p>
                     <p>
-                        Is7API provides you with three matching behaviors that you can choose from:
+                        Is7API provides you with three comparison behaviors that you can choose from:
                     </p>
                     <ul>
                         <li>
@@ -183,10 +183,10 @@ export default function Documentation(props: any) {
                             <i>round</i> - check whether a number is between 6.5 and 7.4(9)
                         </li>
                     </ul>
-                    <Slider {...slidingSelectCommonProps} activeIndex={matchingNumberIndex} indexStateSetter={setMatchingNumberIndex} Values={matchingNumbers}></Slider>
-                    <Slider {...slidingSelectCommonProps} activeIndex={matchingTypeIndex} indexStateSetter={setMatchingTypeIndex} Values={matchingTypes}></Slider>
+                    <Slider {...slidingSelectCommonProps} activeIndex={comparisonNumberIndex} indexStateSetter={setComparisonNumberIndex} Values={comparisonNumers}></Slider>
+                    <Slider {...slidingSelectCommonProps} activeIndex={comparisonTypeIndex} indexStateSetter={setComparisonTypeIndex} Values={comparisonTypes}></Slider>
                 </DocumentationText>
-                <CodeBlock {...codeBlockCommonProps} request={connectionMethods[activeMethod].preview(`${host}/api/${matchingNumbers[matchingNumberIndex]}?matching=${matchingTypes[matchingTypeIndex]}`)} response={responseSecond}></CodeBlock>
+                <CodeBlock {...codeBlockCommonProps} request={connectionMethods[activeMethod].preview(`${host}/api/${comparisonNumers[comparisonNumberIndex]}?comparison=${comparisonTypes[comparisonTypeIndex]}`)} response={responseSecond}></CodeBlock>
             </DocumentationElement>
             <DocumentationElement {...documentationCommonProps}>
             <DocumentationText {...documentationCommonProps}>
@@ -214,9 +214,9 @@ export default function Documentation(props: any) {
                     <p><Bold {...boldCommonProps}>1003 - Bad argument</Bold></p>
                     <p>
                         The last error type is caused by trying to use a comparison type that is not regognizable by the is7API.
-                        Example of request that will result in this error is: <i><a href={`/api/7?matching=yes`}>{`${host}/api/7?matching=yes`}</a></i>
+                        Example of request that will result in this error is: <i><a href={`/api/7?comparison=yes`}>{`${host}/api/7?comparison=yes`}</a></i>
                     </p>
-                    <p>To resolve this error you need to check if you are using walid comparison parameter. Valid comparison types are: <i>{matchingTypes.reduce((accumulator, current) => accumulator + (accumulator ? ', ' : '') + current, '')}</i>.</p>
+                    <p>To resolve this error you need to check if you are using walid comparison parameter. Valid comparison types are: <i>{comparisonTypes.reduce((accumulator, current) => accumulator + (accumulator ? ', ' : '') + current, '')}</i>.</p>
                 </DocumentationText>
                 <CodeBlock 
                     {...codeBlockCommonProps} 
@@ -227,7 +227,7 @@ export default function Documentation(props: any) {
                         {connectionMethods[activeMethod].preview(`${host}/api/seven`)}
                         <br/>
                         <br/>
-                        {connectionMethods[activeMethod].preview(`${host}/api/7?matching=yes`)}
+                        {connectionMethods[activeMethod].preview(`${host}/api/7?comparison=yes`)}
                     </>)} 
                     response={responseThird}></CodeBlock>
             </DocumentationElement>

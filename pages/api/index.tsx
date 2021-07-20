@@ -5,6 +5,7 @@ export default (request: NextApiRequest, response: NextApiResponse) => {
     const errorResponse: ErrorResponse = {
         title: "Missing argument",
         status: 400,
+        code: 1001,
         detail: "A number argument was not provided",
         instance: request.url
     }

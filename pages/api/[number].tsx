@@ -8,6 +8,7 @@ export default (request: NumberApiRequest, response: NextApiResponse) => {
         const errorResponse: ErrorResponse = {
             title: "Bad argument",
             status: 400,
+            code: 1002,
             detail: "Argument 'number' was not a number",
             instance: request.url
         }
@@ -17,7 +18,8 @@ export default (request: NumberApiRequest, response: NextApiResponse) => {
         const errorResponse: ErrorResponse = {
             title: "Bad argument",
             status: 400,
-            detail: "Argument 'matching' value is incorrect. Possible vallues are: " + Object.values(MATCHING_TYPE).join(', '),
+            code: 1003,
+            detail: "Argument 'matching' value is incorrect. Possible values are: " + Object.values(MATCHING_TYPE).join(', '),
             instance: request.url
         }
 

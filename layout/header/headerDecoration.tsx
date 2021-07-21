@@ -17,7 +17,7 @@ const pseudoRandomRotation = (index: number) => (booleanLookup[(index * 13) & bo
 const DecorationContainer = styled.div`
     position: relative;
     width: 100%;
-    top: calc(100% - 1px);
+    top: -1px;
     height: 20vw;
     pointer-events: none;
     margin-bottom: 10vw;

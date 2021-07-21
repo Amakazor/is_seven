@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import floatLookup from '../../utility/pseudoRandomFloatLookupTable';
 import booleanLookup from '../../utility/pseudoRandomBooleanLookupTable';
+import Triangle from '../../components/reusable/triangle';
+import { useContext } from 'react';
 
-interface WelcomeDecorationProps {
+interface WelcomeDecorationElementProps {
     isInside: boolean;
-}
-
-interface WelcomeDecorationElementProps extends WelcomeDecorationProps {
     index: number;
     total: number;
 }
@@ -24,17 +23,9 @@ const DecorationContainer = styled.div`
     margin-bottom: 10vw;
 `;
 
-const DecorationSubcontainer = styled.div<WelcomeDecorationProps>`
-    width: 100%;
-    height: 100%;
-    position: relative;
-    left: 0;
-    right: 0;
-    bottom: ${(props) => (props.isInside ? null : '10vw')};
-    background: ${(props) => (props.isInside ? props.theme.colors.colorAccent : props.theme.colors.colorBackground)};
-    clip-path: ${(props) => (props.isInside ? 'polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%)' : 'polygon(0 100%, 100% 100%, 100% 0, 50% 50%, 0 0)')};
-    overflow: hidden;
-`;
+const RestyledTriangle = styled(Triangle)`
+    bottom: 10vw;
+`
 
 const DecorationElement = styled.div<WelcomeDecorationElementProps>`
     color: ${(props) => (props.isInside ? props.theme.colors.colorBackground : props.theme.colors.colorAccent)};
@@ -55,25 +46,28 @@ const DecorationElement = styled.div<WelcomeDecorationElementProps>`
 `;
 
 export default function HeaderDecoration() {
+    const theme = useContext(ThemeContext);
     const decorationElementsCount = 7;
 
+    const getDecorationElements = (isInside: boolean) => Array(decorationElementsCount).fill(0).map((_, index) => 
+        <DecorationElement 
+            role="presentation" 
+            isInside={isInside} 
+            key={index} 
+            index={index} 
+            total={decorationElementsCount}>
+                7
+        </DecorationElement>    
+    )
+    
     return (
         <DecorationContainer role="presentation">
-            {[true, false].map((value, index) => {
-                return (
-                    <DecorationSubcontainer role="presentation" key={index} isInside={value}>
-                        {Array(decorationElementsCount)
-                            .fill(0)
-                            .map((_, index) => {
-                                return (
-                                    <DecorationElement role="presentation" isInside={value} key={index} index={index} total={decorationElementsCount}>
-                                        7
-                                    </DecorationElement>
-                                );
-                            })}
-                    </DecorationSubcontainer>
-                );
-            })}
+            <Triangle backgroundColor={theme.colors.colorAccent}>
+                {getDecorationElements(true)}
+            </Triangle>
+            <RestyledTriangle backgroundColor={theme.colors.colorBackground} isReversed={true}>
+                {getDecorationElements(false)}
+            </RestyledTriangle>
         </DecorationContainer>
     );
 }

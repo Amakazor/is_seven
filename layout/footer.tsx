@@ -61,9 +61,8 @@ export default function Footer() {
             padding: 2rem 5%;
         }
     `
-    
+
     return (
-        <footer>
         <footer id='contact'>
             <Triangle backgroundColor={theme.colors.colorAccent} isReversed={true} halfSize={true}/>
             <StyledFooterContainer>
@@ -71,23 +70,23 @@ export default function Footer() {
                     <H4 textColor={theme.colors.colorPrimary}>Important links</H4>
                     <UnorderedList {...commonListProps}>
                         <UnderlinedLink {...underlinedLinkProps} href={'https://en.wikipedia.org/wiki/7'} rel={'external'} target={'__blank'}>Definition of seven</UnderlinedLink>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'https://en.wikipedia.org/wiki/Equality_(mathematics)'} rel={'external'} target={'__blank'}>Definition of equality</UnderlinedLink>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'https://en.wikipedia.org/wiki/Inequality_(mathematics)'} rel={'external'} target={'__blank'}>Definition of inequality</UnderlinedLink>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'https://en.wikipedia.org/wiki/Joke'} rel={'external'} target={'__blank'}>Definition of a joke</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'https://en.wikipedia.org/wiki/Equality_(mathematics)'} rel={'external'} target={'__blank'}>Definition of equality</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'https://en.wikipedia.org/wiki/Inequality_(mathematics)'} rel={'external'} target={'__blank'}>Definition of inequality</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'https://en.wikipedia.org/wiki/Joke'} rel={'external'} target={'__blank'}>Definition of a joke</UnderlinedLink>
                     </UnorderedList>
                 </div>
                 <div>
                     <H4 textColor={theme.colors.colorPrimary}>Related Sites</H4>
                     <UnorderedList {...commonListProps}>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'https://isevenapi.xyz/'} rel={'external'} target={'__blank'}>isevenapi.xyz - The inspiration behind this idea</UnderlinedLink>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'http://awrzawinski.xyz/'} target={'__blank'}>awrzawinski.xyz - My home site</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'https://isevenapi.xyz/'} rel={'external'} target={'__blank'}>isevenapi.xyz - The inspiration behind this idea</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'http://awrzawinski.xyz/'} target={'__blank'}>awrzawinski.xyz - My home site</UnderlinedLink>
                     </UnorderedList>
                 </div>
                 <div>
                     <H4 textColor={theme.colors.colorPrimary}>Contact</H4>
                     <UnorderedList {...commonListProps}>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'mailto:arkadiusz.wrzawinski@gmail.com'}> Email - arkadiusz.wrzawinski@gmail.com</UnderlinedLink>
-                        <UnderlinedLink {...underlinedLinkProps}  href={'https://github.com/Amakazor'} rel={'external'} target={'__blank'}>Github - github.com/Amakazor</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'mailto:arkadiusz.wrzawinski@gmail.com'}> Email - arkadiusz.wrzawinski@gmail.com</UnderlinedLink>
+                        <UnderlinedLink {...underlinedLinkProps} href={'https://github.com/Amakazor'} rel={'external'} target={'__blank'}>Github - github.com/Amakazor</UnderlinedLink>
                     </UnorderedList>
                 </div>
             </StyledFooterContainer>

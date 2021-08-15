@@ -17,7 +17,7 @@ export default function About() {
     return (
         <CenteredSection id="about">
             <H2 textColor={theme.colors.colorAccent}>What can is7API do for you?</H2>
-            <UnorderedList textColor={theme.colors.colorText} decorationColor={theme.colors.colorAccent}>
+            <UnorderedList textColor={theme.colors.colorText} fontSize={theme.fonts.slightlyBigger.size} fontWeight={theme.fonts.slightlyBigger.weight} decorationColor={theme.colors.colorAccent}>
                 {aboutElements.map((value, index) => <React.Fragment key={index}>{value}</React.Fragment>)}
             </UnorderedList>
         </CenteredSection>

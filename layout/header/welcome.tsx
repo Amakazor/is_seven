@@ -11,6 +11,7 @@ const StyledWelcome = styled.div`
     flex-direction: row;
     align-items: flex-start;
     position: relative;
+    scroll-margin-top: 5rem;
 
     @media ${device.laptop.max} {
         flex-direction: column;

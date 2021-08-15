@@ -6,6 +6,7 @@ const StyledCenteredSection = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 1rem 1rem;
+    scroll-margin-top: 6rem;
 `
 
 export default function CenteredSection(props: {children: ReactChild | ReactChild[], id?: string}) {

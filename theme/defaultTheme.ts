@@ -23,6 +23,10 @@ export const defaultTheme: DefaultTheme = {
             size: '1.1rem',
             weight: 400,
         },
+        semibold: {
+            size: '1.5rem',
+            weight: 600,
+        },
         bold: {
             size: '1.5rem',
             weight: 700,

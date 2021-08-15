@@ -65,6 +65,7 @@ export default function Menu() {
         { children: 'Home', href: '#home', hasBorder: false },
         { children: 'About', href: '#about', hasBorder: false },
         { children: 'Documentation', href: '#documentation', hasBorder: false },
+        { children: 'Contact', href: '#contact', hasBorder: false },
         { children: 'API', href: '/api/7', hasBorder: true },
     ];
 

@@ -64,6 +64,7 @@ export default function Footer() {
     
     return (
         <footer>
+        <footer id='contact'>
             <Triangle backgroundColor={theme.colors.colorAccent} isReversed={true} halfSize={true}/>
             <StyledFooterContainer>
                 <div>

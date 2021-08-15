@@ -1,11 +1,13 @@
-import Head from 'next/head';
-import Header from '../layout/header';
-import Main from '../layout/main';
-
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '../theme/defaultTheme';
 import GlobalStyle from '../components/GlobalStyle';
-import React from 'react';
+
+import Head from 'next/head';
+
+import Header from '../layout/header';
+import Main from '../layout/main';
+import Footer from '../layout/footer';
 
 export const HostContext = React.createContext('');
 
@@ -22,8 +24,9 @@ export default function Home(props: any) {
             </Head>
             <ThemeProvider theme={defaultTheme}>
                 <HostContext.Provider value={props.host}>
-                    <Header />
-                    <Main />
+                    <Header/>
+                    <Main/>
+                    <Footer/>
                     <GlobalStyle/>
                 </HostContext.Provider>
             </ThemeProvider>

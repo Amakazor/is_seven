@@ -6,21 +6,22 @@ interface UnorderedListProps {
     children: ReactChild | ReactChild[];
     textColor: string;
     decorationColor: string;
+    fontWeight: number;
+    fontSize: string;
 }
 
 const StyledList = styled.ul`
-    font-size: ${props => props.theme.fonts.standard.size};
     margin: 0;
     padding: 0;
 `
 
-const StyledListElement = styled.li<{textColor: string; decorationColor: string;}>`
+const StyledListElement = styled.li<UnorderedListProps>`
     color: ${props => props.textColor} ;
     display: block;
     position: relative;
     list-style: none;
-    font-weight: ${props => props.theme.fonts.slightlyBigger.weight};
-    font-size: ${props => props.theme.fonts.slightlyBigger.size};
+    font-weight: ${props => props.fontWeight};
+    font-size: ${props => props.fontSize};
     padding-left: 1.5em;
     padding-top: .2em;
     padding-bottom: .2em;
@@ -38,7 +39,7 @@ const StyledListElement = styled.li<{textColor: string; decorationColor: string;
     }
 
     @media ${device.mobileL.max} {
-        font-size: calc( ${props => props.theme.fonts.slightlyBigger.size} * 0.75);
+        font-size: calc( ${props => props.fontSize} * 0.75);
     }
 `
 

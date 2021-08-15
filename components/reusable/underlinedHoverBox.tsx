@@ -13,29 +13,32 @@ export interface UnderlinedHoverBoxProps {
         },
         underlineColor: string;
     }
+    fontWeight: number;
     transitionTime: string;
+    isBlock?: boolean;
+    isFullWidth?: boolean;
 }
 
 const StyledUnderlinedHoverBox = styled.div<UnderlinedHoverBoxProps>`
     color: ${(props) => props.colors.normal.textColor};
     background: ${(props) => props.colors.normal.backgroundColor};
     transition: color ${(props) => props.transitionTime}, background-color ${(props) => props.transitionTime};
-    font-weight: 600;
+    font-weight: ${props => props.fontWeight};
     cursor: pointer;
     width: 100%;
     text-align: center;
     position: relative;
-    padding: 0.5rem 1.5rem;
-    display: block;
+    padding: ${props => props.isBlock ? '0.5rem 1.5rem' : null};
+    display: ${props => props.isBlock ? 'block' : null};
 
     &::after {
         display: block;
         content: '';
         transform-origin: left;
-        width: 80%;
+        width: ${props => props.isFullWidth ? '100%' : '80%'};
         position: absolute;
         height: 0.125rem;
-        left: 10%;
+        left: ${props => props.isFullWidth ? '0' : '10%'};
         top: 100%;
         background: ${(props) => props.colors.underlineColor};
         transform: scaleX(0);

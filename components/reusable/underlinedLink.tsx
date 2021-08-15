@@ -1,17 +1,22 @@
 import Link from 'next/link';
 import React, { MouseEventHandler, ReactChild } from 'react';
-import StyledUnderlinedHoverBox, { UnderlinedHoverBoxProps } from '../styled/underlinedHoverBox';
+import StyledUnderlinedHoverBox, { UnderlinedHoverBoxProps } from './underlinedHoverBox';
 
 export interface UnderlinedLinkProps extends UnderlinedHoverBoxProps {
     href: string;
-    onClick: MouseEventHandler;
+    rel?: string;
+    target?: string;
+    onClick?: MouseEventHandler;
     children?: ReactChild | ReactChild[];
+    isNextLink?: boolean;
 }
 
 export default function UnderlinedLink(props: UnderlinedLinkProps) {
-    return (
-        <Link href={props.href}>
+    return props.isNextLink ? (
+            <Link href={props.href}>
+                <StyledUnderlinedHoverBox as="a" {...props}>{props.children}</StyledUnderlinedHoverBox>
+            </Link>
+        ) : (
             <StyledUnderlinedHoverBox as="a" {...props}>{props.children}</StyledUnderlinedHoverBox>
-        </Link>
-    )
+        )
 }

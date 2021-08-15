@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { MouseEventHandler, ReactChild } from 'react';
-import StyledBorderedHoverBox, { BorderedHoverBoxProps } from '../styled/borderedHoverBox';
+import StyledBorderedHoverBox, { BorderedHoverBoxProps } from './borderedHoverBox';
 
 export interface BorderedLinkProps extends BorderedHoverBoxProps {
     href: string;

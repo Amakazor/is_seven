@@ -81,6 +81,9 @@ export default function Menu() {
             underlineColor: theme.colors.colorPrimary,
         },
         transitionTime: theme.transitionTime,
+        isBlock: true,
+        isNextLink: true,
+        fontWeight: theme.fonts.semibold.weight,
     };
 
     const borderedLinkProps = {

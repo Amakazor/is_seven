@@ -61,8 +61,7 @@ export default function Footer() {
             padding: 2rem 5%;
         }
     `
-
-
+    
     return (
         <footer>
             <Triangle backgroundColor={theme.colors.colorAccent} isReversed={true} halfSize={true}/>
@@ -92,7 +91,7 @@ export default function Footer() {
                 </div>
             </StyledFooterContainer>
             <StyledFooterContainer>
-                <span>Copyright <sup>&copy;</sup> {new Date().getFullYear()}  <UnderlinedLink {...underlinedLinkProps}  href={'http://awrzawinski.xyz/'} target={'__blank'}>Arkadiusz Wrzawiński</UnderlinedLink></span>
+                <span>Copyright <sup>&copy;</sup> {new Date().getFullYear()} <UnderlinedLink {...underlinedLinkProps}  href={'http://awrzawinski.xyz/'} target={'__blank'}>Arkadiusz Wrzawiński</UnderlinedLink></span>
             </StyledFooterContainer>
         </footer>
     )

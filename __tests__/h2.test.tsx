@@ -1,7 +1,7 @@
-import { mount } from 'enzyme';
-import { ThemeProvider } from 'styled-components';
+import {mount} from 'enzyme';
+import {ThemeProvider} from 'styled-components';
 import H2 from '../components/reusable/h2';
-import { defaultTheme } from '../theme/defaultTheme';
+import {defaultTheme} from '../theme/defaultTheme';
 
 describe('H2', () => {
     it('renders without crashing', () => {

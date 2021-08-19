@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 import Header from '../layout/header';
 
 describe('Header', () => {

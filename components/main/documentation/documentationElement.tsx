@@ -18,9 +18,9 @@ const DocumentationElementContainer = styled.div`
     padding: 0 10%;
     gap: 2rem;
     position: relative;
-    
+
     @media ${device.laptop.max} {
-        padding: 0 .75rem;
+        padding: 0 0.75rem;
         gap: 1rem;
     }
 
@@ -47,7 +47,7 @@ const DocumentationElementSubContainer = styled.div<documentationElementProps>`
     flex: 0 0 50%;
     background: ${props => props.backgroundColor};
     border: 0.125rem solid ${props => props.borderColor};
-    border-radius: ${(props) => props.borderRadius};
+    border-radius: ${props => props.borderRadius};
     padding: 1rem;
     font-size: 1.2rem;
 
@@ -58,17 +58,9 @@ const DocumentationElementSubContainer = styled.div<documentationElementProps>`
 `;
 
 export default function DocumentationElement(props: documentationElementProps) {
-    return (
-        <DocumentationElementContainer>
-            {props.children}
-        </DocumentationElementContainer>
-    );
+    return <DocumentationElementContainer>{props.children}</DocumentationElementContainer>;
 }
 
 export function DocumentationText(props: documentationElementProps) {
-    return (
-        <DocumentationElementSubContainer {...props}>
-            {props.children}
-        </DocumentationElementSubContainer>
-    );
+    return <DocumentationElementSubContainer {...props}>{props.children}</DocumentationElementSubContainer>;
 }

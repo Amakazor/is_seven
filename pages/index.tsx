@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../theme/defaultTheme';
+import {ThemeProvider} from 'styled-components';
+import {defaultTheme} from '../theme/defaultTheme';
 import GlobalStyle from '../components/GlobalStyle';
 
 import Head from 'next/head';
@@ -24,10 +24,10 @@ export default function Home(props: any) {
             </Head>
             <ThemeProvider theme={defaultTheme}>
                 <HostContext.Provider value={props.host}>
-                    <Header/>
-                    <Main/>
-                    <Footer/>
-                    <GlobalStyle/>
+                    <Header />
+                    <Main />
+                    <Footer />
+                    <GlobalStyle />
                 </HostContext.Provider>
             </ThemeProvider>
         </>
@@ -35,13 +35,13 @@ export default function Home(props: any) {
 }
 
 Home.getInitialProps = ({req}) => {
-    let fullUrl
+    let fullUrl;
     if (req) {
-      // Server side rendering
-      fullUrl = req.headers.host
+        // Server side rendering
+        fullUrl = req.headers.host;
     } else {
-      // Client side rendering
-      fullUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port: '')
+        // Client side rendering
+        fullUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
-    return { host: fullUrl }
-}
+    return {host: fullUrl};
+};

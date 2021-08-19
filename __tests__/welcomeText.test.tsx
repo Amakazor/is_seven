@@ -1,7 +1,7 @@
-import { mount, shallow } from 'enzyme';
-import { ThemeProvider } from 'styled-components';
+import {mount, shallow} from 'enzyme';
+import {ThemeProvider} from 'styled-components';
 import WelcomeText from '../components/header/welcome/welcomeText';
-import { defaultTheme } from '../theme/defaultTheme';
+import {defaultTheme} from '../theme/defaultTheme';
 
 describe('Welcome Text', () => {
     it('renders without crashing', () => {

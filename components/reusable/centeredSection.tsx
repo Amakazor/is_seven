@@ -1,4 +1,4 @@
-import { ReactChild } from 'react';
+import {ReactChild} from 'react';
 import styled from 'styled-components';
 
 const StyledCenteredSection = styled.section`
@@ -7,12 +7,15 @@ const StyledCenteredSection = styled.section`
     align-items: center;
     padding: 1rem 1rem;
     scroll-margin-top: 6rem;
-`
+`;
 
-export default function CenteredSection(props: {children: ReactChild | ReactChild[], id?: string}) {
+export default function CenteredSection(props: {
+    children: ReactChild | ReactChild[];
+    id?: string;
+}) {
     return (
-        <StyledCenteredSection id={props.id ?? ""}>
+        <StyledCenteredSection id={props.id ?? ''}>
             {props.children}
         </StyledCenteredSection>
-    )
+    );
 }

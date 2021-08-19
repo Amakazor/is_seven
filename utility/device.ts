@@ -1,4 +1,4 @@
-import size from "./deviceSize";
+import size from './deviceSize';
 
 const device = {
     mobileS: {
@@ -29,6 +29,6 @@ const device = {
         min: `(min-width: ${size.desktop.min})`,
         max: `(max-width: ${size.desktop.max})`,
     },
-}
+};
 
 export default device;

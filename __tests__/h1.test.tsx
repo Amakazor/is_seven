@@ -1,7 +1,7 @@
-import { mount } from 'enzyme';
-import { ThemeProvider } from 'styled-components';
+import {mount} from 'enzyme';
+import {ThemeProvider} from 'styled-components';
 import H1 from '../components/reusable/h1';
-import { defaultTheme } from '../theme/defaultTheme';
+import {defaultTheme} from '../theme/defaultTheme';
 
 describe('H1', () => {
     it('renders without crashing', () => {

@@ -1,7 +1,7 @@
-import styled, { ThemeContext } from 'styled-components';
+import styled, {ThemeContext} from 'styled-components';
 import H1 from '../../reusable/h1';
 import device from '../../../utility/device';
-import { ReactChild, useContext } from 'react';
+import {ReactChild, useContext} from 'react';
 
 interface WelcomeTextProps {
     children: ReactChild | ReactChild[];
@@ -25,14 +25,18 @@ const StyledWelcomeTextContainer = styled.div`
 `;
 
 const StyledWelcomeText = styled.div`
-    color: ${(props) => props.theme.colors.colorPrimary};
+    color: ${props => props.theme.colors.colorPrimary};
     margin-top: 0;
-    font-size: ${(props) => props.theme.fonts.standard.size};
-    font-weight: ${(props) => props.theme.fonts.standard.weight};
+    font-size: ${props => props.theme.fonts.size.standard};
+    font-weight: ${props => props.theme.fonts.weight.standard};
     line-height: 1.3rem;
 
     & > p {
-        margin: 0.5rem 0;
+        margin: 0.75rem 0;
+
+        @media ${device.mobileL.max} {
+            margin: 0.3rem 0;
+        }
     }
 
     @media ${device.mobileL.max} {
@@ -40,7 +44,7 @@ const StyledWelcomeText = styled.div`
     }
 
     @media ${device.mobileM.max} {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 `;
 

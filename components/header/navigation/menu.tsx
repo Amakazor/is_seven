@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext} from 'react';
 import HamburgerButton from './hamburgerButton';
-import styled, { css, ThemeContext } from 'styled-components';
+import styled, {css, ThemeContext} from 'styled-components';
 import device from '../../../utility/device';
 import UnderlinedLink from '../../reusable/underlinedLink';
 import BorderedLink from '../../reusable/borderedLink';
-
 
 interface menuProps {
     isHamburgerOpen: boolean;
@@ -13,11 +12,11 @@ interface menuProps {
 const menuOpen = css`
     transform: scaleY(1);
 
-    transition: transform ${(props) => props.theme.transitionTime};
+    transition: transform ${props => props.theme.transitionTime};
 
     & li {
         opacity: 1;
-        transition: opacity ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
+        transition: opacity ${props => props.theme.transitionTime} ${props => props.theme.transitionTime};
     }
 `;
 
@@ -36,37 +35,37 @@ const StyledMenu = styled.ul<menuProps>`
         right: 0;
         width: 100%;
         top: 100%;
-        background: ${(props) => props.theme.colors.colorAccent};
+        background: ${props => props.theme.colors.colorAccent};
         padding: 1rem 0;
         margin-top: 0.125rem;
         transform-origin: top;
         transform: scaleY(0);
-        transition: transform ${(props) => props.theme.transitionTime} ${(props) => props.theme.transitionTime};
-        border-bottom: 0.125rem solid ${(props) => props.theme.colors.colorPrimary};
+        transition: transform ${props => props.theme.transitionTime} ${props => props.theme.transitionTime};
+        border-bottom: 0.125rem solid ${props => props.theme.colors.colorPrimary};
 
         & li {
             opacity: 0;
-            transition: opacity ${(props) => props.theme.transitionTime};
+            transition: opacity ${props => props.theme.transitionTime};
         }
 
-        ${(props) => (props.isHamburgerOpen ? menuOpen : null)}
+        ${props => (props.isHamburgerOpen ? menuOpen : null)}
     }
 `;
 
 export default function Menu() {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-    const handleHamburgerClick = () => setIsHamburgerOpen((prev) => !prev);
+    const handleHamburgerClick = () => setIsHamburgerOpen(prev => !prev);
     const handleMenuFocus = () => setIsHamburgerOpen(true);
     const handleMenuBlur = () => setIsHamburgerOpen(false);
 
     const theme = useContext(ThemeContext);
 
     const menuElements: Array<{children: React.ReactChild | React.ReactChild[]; href: string; hasBorder: boolean}> = [
-        { children: 'Home', href: '#home', hasBorder: false },
-        { children: 'About', href: '#about', hasBorder: false },
-        { children: 'Documentation', href: '#documentation', hasBorder: false },
-        { children: 'Contact', href: '#contact', hasBorder: false },
-        { children: 'API', href: '/api/7', hasBorder: true },
+        {children: 'Home', href: '#home', hasBorder: false},
+        {children: 'About', href: '#about', hasBorder: false},
+        {children: 'Documentation', href: '#documentation', hasBorder: false},
+        {children: 'Contact', href: '#contact', hasBorder: false},
+        {children: 'API', href: '/api/7', hasBorder: true},
     ];
 
     const underlinedLinkProps = {
@@ -84,7 +83,7 @@ export default function Menu() {
         transitionTime: theme.transitionTime,
         isBlock: true,
         isNextLink: true,
-        fontWeight: theme.fonts.semibold.weight,
+        fontWeight: theme.fonts.weight.semibold,
     };
 
     const borderedLinkProps = {
@@ -111,9 +110,21 @@ export default function Menu() {
             <StyledMenu isHamburgerOpen={isHamburgerOpen} onFocus={handleMenuFocus} onBlur={handleMenuBlur}>
                 {menuElements.map((element, index) => {
                     if (element.hasBorder) {
-                        return <li key={index}><BorderedLink {...borderedLinkProps} href={element.href} onClick={handleMenuBlur}>{element.children}</BorderedLink></li>
+                        return (
+                            <li key={index}>
+                                <BorderedLink {...borderedLinkProps} href={element.href} onClick={handleMenuBlur}>
+                                    {element.children}
+                                </BorderedLink>
+                            </li>
+                        );
                     } else {
-                        return <li key={index}><UnderlinedLink {...underlinedLinkProps} href={element.href} onClick={handleMenuBlur}>{element.children}</UnderlinedLink></li>
+                        return (
+                            <li key={index}>
+                                <UnderlinedLink {...underlinedLinkProps} href={element.href} onClick={handleMenuBlur}>
+                                    {element.children}
+                                </UnderlinedLink>
+                            </li>
+                        );
                     }
                 })}
             </StyledMenu>

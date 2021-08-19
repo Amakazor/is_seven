@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 export default createGlobalStyle`
     html {
@@ -25,4 +25,4 @@ export default createGlobalStyle`
     * {
         box-sizing: border-box;
     }
-`
+`;

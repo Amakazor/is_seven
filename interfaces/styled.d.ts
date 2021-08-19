@@ -12,11 +12,17 @@ declare module 'styled-components' {
             colorDark: string;
         };
         fonts: {
-            [key: string]: {
-                size: string;
-                weight: number;
-            }
-        }
+            weight: {
+                standard: number;
+                semibold: number;
+                bold: number;
+            };
+            size: {
+                standard: string;
+                slightlyBigger: string;
+                slightlySmaller: string;
+            };
+        };
         transitionTime: string;
         borderRadius: string;
     }

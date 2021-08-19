@@ -1,7 +1,7 @@
-import { mount, shallow } from 'enzyme';
-import { ThemeProvider } from 'styled-components';
+import {mount, shallow} from 'enzyme';
+import {ThemeProvider} from 'styled-components';
 import WelcomeMockWindow from '../components/header/welcome/welcomeMockWindow';
-import { defaultTheme } from '../theme/defaultTheme';
+import {defaultTheme} from '../theme/defaultTheme';
 
 describe('Welcome Text', () => {
     const lines = [
@@ -32,9 +32,7 @@ describe('Welcome Text', () => {
                 left: 0,
                 right: 0,
             },
-            content: (
-                <p>testText</p>
-            )
+            content: <p>testText</p>,
         },
     ];
 
@@ -68,7 +66,12 @@ describe('Welcome Text', () => {
         );
 
         expect(welcomeMockWindow.find('.mockWindowFile').hostNodes().length).toBe(3);
-        expect(welcomeMockWindow.find('.mockWindowFile').hostNodes().map(element => element.text())).toStrictEqual(filenames.map(filename => filename.name));
+        expect(
+            welcomeMockWindow
+                .find('.mockWindowFile')
+                .hostNodes()
+                .map(element => element.text()),
+        ).toStrictEqual(filenames.map(filename => filename.name));
 
         expect(welcomeMockWindow.find('.mockWindowLine').hostNodes().length).toBe(4);
     });

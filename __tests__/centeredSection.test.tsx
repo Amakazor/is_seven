@@ -1,7 +1,7 @@
-import { mount, shallow } from 'enzyme';
-import { ThemeProvider } from 'styled-components';
+import {mount, shallow} from 'enzyme';
+import {ThemeProvider} from 'styled-components';
 import CenteredSection from '../components/reusable/centeredSection';
-import { defaultTheme } from '../theme/defaultTheme';
+import {defaultTheme} from '../theme/defaultTheme';
 
 describe('Centered Section', () => {
     it('renders without crashing', () => {
@@ -13,7 +13,7 @@ describe('Centered Section', () => {
     });
 
     it('has correct id', () => {
-        const testId = "testId";
+        const testId = 'testId';
 
         let centeredSection = mount(
             <ThemeProvider theme={defaultTheme}>

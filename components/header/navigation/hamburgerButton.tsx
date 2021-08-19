@@ -1,5 +1,5 @@
-import React, { FocusEventHandler, MouseEventHandler } from 'react';
-import styled, { css } from 'styled-components';
+import React, {FocusEventHandler, MouseEventHandler} from 'react';
+import styled, {css} from 'styled-components';
 import device from '../../../utility/device';
 
 interface hamburgerProps {
@@ -38,10 +38,10 @@ const StyledHamburgerButton = styled.button<hamburgerProps>`
         position: absolute;
         width: 100%;
         height: 0.25rem;
-        background: ${(props) => props.theme.colors.colorPrimary};
+        background: ${props => props.theme.colors.colorPrimary};
         left: 0;
         right: 0;
-        transition: transform ${(props) => props.theme.transitionTime};
+        transition: transform ${props => props.theme.transitionTime};
     }
 
     &::after,
@@ -49,7 +49,7 @@ const StyledHamburgerButton = styled.button<hamburgerProps>`
         transform-origin: right;
     }
 
-    ${(props) => (props.isHamburgerOpen ? StyledHamburgerbuttonOpen : null)}
+    ${props => (props.isHamburgerOpen ? StyledHamburgerbuttonOpen : null)}
 
     &::before {
         top: 0.5rem;

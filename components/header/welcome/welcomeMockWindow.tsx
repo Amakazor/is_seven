@@ -24,7 +24,7 @@ const MockWindowContainer = styled.div`
     position: relative;
     width: 50rem;
     height: 30rem;
-    background: ${(props) => props.theme.colors.colorPrimary};
+    background: ${props => props.theme.colors.colorPrimary};
     border-radius: 2%;
     display: flex;
     z-index: 10;
@@ -57,7 +57,7 @@ const MockWindowContainer = styled.div`
 const MockWindowInside = styled.div`
     width: 100%;
     height: 100%;
-    border-top: 0.0625rem solid ${(props) => props.theme.colors.colorAccent};
+    border-top: 0.0625rem solid ${props => props.theme.colors.colorAccent};
     display: flex;
     flex-direction: row;
 `;
@@ -71,7 +71,7 @@ const MockWindowButtons = styled.div`
     padding: 0.5rem;
     flex-shrink: 0;
     gap: 0.5rem;
-    background: ${(props) => props.theme.colors.colorBackground};
+    background: ${props => props.theme.colors.colorBackground};
 
     @media ${device.mobileL.max} {
         height: 3vw;
@@ -80,10 +80,10 @@ const MockWindowButtons = styled.div`
     }
 `;
 
-const MockWindowButton = styled.div<{ color: string }>`
+const MockWindowButton = styled.div<{color: string}>`
     width: 1rem;
     height: 1rem;
-    background: ${(props) => props.color};
+    background: ${props => props.color};
     border-radius: 50%;
 
     @media ${device.mobileL.max} {
@@ -94,14 +94,14 @@ const MockWindowButton = styled.div<{ color: string }>`
 
 const MockWindowLeft = styled.div`
     width: 30%;
-    border-right: 0.0625rem solid ${(props) => props.theme.colors.colorAccent};
+    border-right: 0.0625rem solid ${props => props.theme.colors.colorAccent};
 `;
 
 const MockWindowFile = styled.div<Filename>`
     width: 100%;
     padding: 0.25rem 0.5rem;
-    background: ${(props) => (props.isActive ? props.theme.colors.colorBackground : null)};
-    font-weight: ${(props) => (props.isActive ? 600 : 400)};
+    background: ${props => (props.isActive ? props.theme.colors.colorBackground : null)};
+    font-weight: ${props => (props.isActive ? 600 : 400)};
 
     @media ${device.mobileL.max} {
         padding: 0.33vw 0.75vw;
@@ -112,7 +112,7 @@ const MockWindowFile = styled.div<Filename>`
 const MockWindowLine = styled.div<Line>`
     display: flex;
     flex-direction: row;
-    width: calc(95% - ${(props) => ((props.indent?.left ?? 0) + (props.indent?.right ?? 0)) * 5}%);
+    width: calc(95% - ${props => ((props.indent?.left ?? 0) + (props.indent?.right ?? 0)) * 5}%);
     align-items: baseline;
     justify-content: flex-start;
     overflow: hidden;
@@ -125,21 +125,21 @@ const MockWindowLine = styled.div<Line>`
 
     & > span {
         font-size: 0.8rem;
-        color: ${(props) => props.theme.colors.colorAccent};
-        margin-left: ${(props) => props.indent?.left ?? 0}rem;
+        color: ${props => props.theme.colors.colorAccent};
+        margin-left: ${props => props.indent?.left ?? 0}rem;
         font-weight: 600;
         @media ${device.mobileL.max} {
-            margin-left: ${(props) => props.indent?.left ?? 0 * 1.5 + 1.5}vw;
+            margin-left: ${props => props.indent?.left ?? 0 * 1.5 + 1.5}vw;
             font-size: calc(0.35rem + 0.9vw);
         }
     }
 
     &::after {
-        margin-left: ${(props) => props.indent?.left ?? 0}rem;
+        margin-left: ${props => props.indent?.left ?? 0}rem;
         transform: translateY(-33%);
         position: relative;
         height: 100%;
-        display: ${(props) => (props.isMockLine ? 'block' : 'none')};
+        display: ${props => (props.isMockLine ? 'block' : 'none')};
         content: '\u00A0';
         text-decoration-line: underline;
         text-decoration-style: wavy;
@@ -150,7 +150,7 @@ const MockWindowLine = styled.div<Line>`
         transform-origin: left;
 
         @media ${device.mobileL.max} {
-            margin-left: ${(props) => props.indent?.left ?? 0 * 1.5 + 1.5}vw;
+            margin-left: ${props => props.indent?.left ?? 0 * 1.5 + 1.5}vw;
             font-size: calc(0.5rem + 1.1vw);
             transform: scale(0.5) translateY(-100%);
         }

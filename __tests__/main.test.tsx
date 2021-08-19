@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 import Main from '../layout/main';
 
 describe('Main', () => {

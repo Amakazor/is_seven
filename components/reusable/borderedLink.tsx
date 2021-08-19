@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React, { MouseEventHandler, ReactChild } from 'react';
-import StyledBorderedHoverBox, { BorderedHoverBoxProps } from './borderedHoverBox';
+import React, {MouseEventHandler, ReactChild} from 'react';
+import StyledBorderedHoverBox, {BorderedHoverBoxProps} from './borderedHoverBox';
 
 export interface BorderedLinkProps extends BorderedHoverBoxProps {
     href: string;
@@ -11,7 +11,9 @@ export interface BorderedLinkProps extends BorderedHoverBoxProps {
 export default function BorderedLink(props: BorderedLinkProps) {
     return (
         <Link href={props.href}>
-            <StyledBorderedHoverBox as="a" {...props}>{props.children}</StyledBorderedHoverBox>
+            <StyledBorderedHoverBox as="a" {...props}>
+                {props.children}
+            </StyledBorderedHoverBox>
         </Link>
-    )
+    );
 }

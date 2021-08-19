@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
-import BorderedLink, { BorderedLinkProps } from '../components/reusable/borderedLink';
+import {mount} from 'enzyme';
+import BorderedLink, {BorderedLinkProps} from '../components/reusable/borderedLink';
 
 const borderedLinkProps: BorderedLinkProps = {
     colors: {
@@ -21,7 +21,7 @@ const borderedLinkProps: BorderedLinkProps = {
     removeBorderMobile: false,
 };
 
-const testText = "abcd";
+const testText = 'abcd';
 
 describe('Bordered Link', () => {
     it('renders without crashing', () => {
@@ -32,11 +32,11 @@ describe('Bordered Link', () => {
         const borderedLink = mount(<BorderedLink {...borderedLinkProps}>{testText}</BorderedLink>);
 
         expect(borderedLink.text()).toBe(testText);
-        expect(borderedLink.find("a").hostNodes().length).toBe(1);
+        expect(borderedLink.find('a').hostNodes().length).toBe(1);
     });
 
     it('has correct link', () => {
         const borderedLink = mount(<BorderedLink {...borderedLinkProps}>{testText}</BorderedLink>);
-        expect(borderedLink.find("a").prop("href")).toEqual(borderedLinkProps.href);
+        expect(borderedLink.find('a').prop('href')).toEqual(borderedLinkProps.href);
     });
 });

@@ -16,10 +16,22 @@ export default function Home(props: any) {
         <>
             <Head>
                 <title>Is Seven API</title>
-                <meta name="description" content="API to find if number is seven" />
+                <meta
+                    name="description"
+                    content="Revolutionary API that can be used to determine whether a number is a seven or not. Includes many different types of numerical comparisons, and allows various types of numbers, such as integer and float."
+                />
                 <meta name="author" content="Arkadiusz Wrzawiński" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="keywords" content="API, Seven, Number, Is Seven, Joke, Mildly Funny" />
+                <meta name="keywords" content="API, Seven, Number, Is Seven, Equality, Numerical, Joke, Mildly Funny" />
+                <meta property="og:title" content="is7API - The API to revolutionize the web" />
+                <meta property="og:url" content={props.host} />
+                <meta property="og:image" content={`${props.host}/images/logoButBig.png`} />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:description"
+                    content="Revolutionary API that can be used to determine whether a number is a seven or not. Includes many different types of numerical comparisons, and allows various types of numbers, such as integer and float."
+                />
+                <meta property="og:locale" content="en_US" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <ThemeProvider theme={defaultTheme}>
@@ -38,7 +50,7 @@ Home.getInitialProps = ({req}) => {
     let fullUrl;
     if (req) {
         // Server side rendering
-        fullUrl = req.headers.host;
+        fullUrl = 'http://' + req.headers.host;
     } else {
         // Client side rendering
         fullUrl = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');

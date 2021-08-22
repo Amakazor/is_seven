@@ -47,7 +47,7 @@ const DecorationElement = styled.div<WelcomeDecorationElementProps>`
             [1, -1],
             [1, 1],
         ]
-            .map(value => `${value[0] * 0.125}rem ${value[1] * 0.125}rem 1px ${props.theme.colors.colorPrimary}`)
+            .map(value => `${value[0] * 0.2}rem ${value[1] * 0.2}rem 0 ${props.theme.colors.colorPrimary}`)
             .join(', ')};
 `;
 

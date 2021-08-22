@@ -34,8 +34,11 @@ const MockWindowContainer = styled.div`
     box-shadow: 8px 4px 0 #333333;
     border: 0.125rem solid #333333;
     flex-shrink: 0;
-    pointer-events: none;
     margin-top: 5rem;
+
+    & * {
+        cursor: default;
+    }
 
     @media (max-width: 1650px) {
         width: 42rem;
@@ -80,11 +83,16 @@ const MockWindowButtons = styled.div`
     }
 `;
 
-const MockWindowButton = styled.div<{color: string}>`
+const MockWindowButton = styled.div<{color: string; hoverColor: string}>`
     width: 1rem;
     height: 1rem;
     background: ${props => props.color};
     border-radius: 50%;
+    transition: background ${props => props.theme.transitionTime};
+
+    &:hover {
+        background: ${props => props.hoverColor};
+    }
 
     @media ${device.mobileL.max} {
         width: 1.5vw;
@@ -102,6 +110,11 @@ const MockWindowFile = styled.div<Filename>`
     padding: 0.25rem 0.5rem;
     background: ${props => (props.isActive ? props.theme.colors.colorBackground : null)};
     font-weight: ${props => (props.isActive ? 600 : 400)};
+    transition: background ${props => props.theme.transitionTime};
+
+    &:hover {
+        background: ${props => props.theme.colors.colorBackground};
+    }
 
     @media ${device.mobileL.max} {
         padding: 0.33vw 0.75vw;
@@ -117,10 +130,14 @@ const MockWindowLine = styled.div<Line>`
     justify-content: flex-start;
     overflow: hidden;
     flex-shrink: 0;
-    color: #999999;
+    color: #aaaaaa;
 
     @media ${device.mobileL.max} {
         font-size: calc(0.5rem + 1.1vw);
+    }
+
+    &:hover > :first-child {
+        color: ${props => props.theme.colors.colorAccent};
     }
 
     & > span {
@@ -163,6 +180,7 @@ const MockWindowLineNumber = styled.div`
     flex-shrink: 0;
     text-align: right;
     padding-right: 1rem;
+    transition: color ${props => props.theme.transitionTime};
 
     @media ${device.mobileL.max} {
         height: 2vw;
@@ -182,8 +200,12 @@ export default function WelcomeMockWindow(props: WelcomeMockWindowProps) {
     return (
         <MockWindowContainer role="presentation">
             <MockWindowButtons role="presentation">
-                {['#FF605C', '#FFBD44', '#00CA4E'].map((value, index) => (
-                    <MockWindowButton role="presentation" color={value} key={index}></MockWindowButton>
+                {[
+                    {color: '#FF605C', hoverColor: '#ff8a88'},
+                    {color: '#FFBD44', hoverColor: '#fdd589'},
+                    {color: '#00CA4E', hoverColor: '#00f55e'},
+                ].map((value, index) => (
+                    <MockWindowButton role="presentation" color={value.color} hoverColor={value.hoverColor} key={index}></MockWindowButton>
                 ))}
             </MockWindowButtons>
             <MockWindowInside role="presentation">
